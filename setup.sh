@@ -103,3 +103,10 @@ LimitNPROC=infinity
 WantedBy=multi-user.target
 " >cosmovisor.service
 sudo mv cosmovisor.service /lib/systemd/system/cosmovisor.service
+
+
+# Enable the cosmovisor service so that it will start automatically when the system boots
+sudo systemctl daemon-reload
+sudo systemctl enable cosmovisor.service
+sudo systemctl restart systemd-journald
+sudo systemctl start cosmovisor

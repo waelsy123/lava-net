@@ -28,8 +28,27 @@ sudo apt install -y unzip logrotate git jq sed wget curl coreutils systemd
 cd /home/ubuntu
 
 git clone https://github.com/waelsy123/lava-net.git
-chmod 777 lava-net
+sudo chmod 777 lava-net
 sudo -H -u ubuntu bash -c 'lava-net/setup.sh' 
 
   EOF
 }
+
+
+
+# Verify cosmovisor setup
+# Make sure cosmovisor is running by checking the state of the cosmovisor service:
+
+# Check the status of the service
+
+#> sudo systemctl status cosmovisor
+
+# To view the service logs - to escape, hit CTRL+C
+
+#> sudo journalctl -u cosmovisor -f
+
+# Verify node status
+# Note the location of lavad now exists under cosmovisor path:
+
+# # Check if the node is currently in the process of catching up
+#> $HOME/.lava/cosmovisor/current/bin/lavad status | jq
