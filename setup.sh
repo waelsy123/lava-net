@@ -23,6 +23,7 @@
 # sudo apt install -y unzip logrotate git jq sed wget curl coreutils systemd
 
 # Download GO
+cd /home/ubuntu
 wget -q https://go.dev/dl/go1.18.linux-amd64.tar.gz
 
 # Unpack the GO installation file
@@ -48,22 +49,15 @@ cp default_lavad_config_files/* $lava_config_folder
 # Copy the genesis.json file to the Lava config folder
 cp genesis_json/genesis.json $lava_config_folder/genesis.json
 
-echo "debug 1"
-
 ## setup Cosmovisor
 source ~/.profile
 go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
-echo "debug 1"
-
 # Create the Cosmovisor folder and copy config files to it
 mkdir -p $lavad_home_folder/cosmovisor
 
-echo $lavad_home_folder >> a
-which go >> cosmovisor
-which cosmovisor >> cosmovisor
-
 # Download the latest cosmovisor-upgrades from S3
+cd /home/ubuntu/
 wget https://lava-binary-upgrades.s3.amazonaws.com/testnet/cosmovisor-upgrades/cosmovisor-upgrades.zip
 unzip cosmovisor-upgrades.zip
 cp -r cosmovisor-upgrades/* $lavad_home_folder/cosmovisor

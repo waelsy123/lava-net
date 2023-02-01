@@ -16,16 +16,11 @@ resource "aws_instance" "lava-testnet" {
 
 # installing Node.js pm2 and http-server
 sudo apt-get update
-# Install Node.js and npm
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 apt-get install -y nodejs
-# Install git
 apt-get install -y git
-# Install the pm2 package
 npm install pm2 -g
 npm install http-server -g
-
-## intall go
 
 sudo apt update # in case of permissions error, try running with sudo
 sudo apt install -y unzip logrotate git jq sed wget curl coreutils systemd
@@ -33,6 +28,8 @@ sudo apt install -y unzip logrotate git jq sed wget curl coreutils systemd
 cd /home/ubuntu
 
 git clone https://github.com/waelsy123/lava-net.git
+chmod 777 lava-net
+sudo -H -u ubuntu bash -c 'lava-net/setup.sh' 
 
   EOF
 }
