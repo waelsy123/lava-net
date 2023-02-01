@@ -28,7 +28,7 @@ sudo apt install -y unzip logrotate git jq sed wget curl coreutils systemd
 cd /home/ubuntu
 
 git clone https://github.com/waelsy123/lava-net.git
-sudo chmod 777 lava-net
+sudo chmod 777 lava-net/setup.sh
 sudo -H -u ubuntu bash -c 'lava-net/setup.sh' 
 
   EOF

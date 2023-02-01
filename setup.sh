@@ -66,7 +66,7 @@ cp -r cosmovisor-upgrades/* $lavad_home_folder/cosmovisor
 echo "# Setup Cosmovisor" >> ~/.profile
 echo "export DAEMON_NAME=lavad" >> ~/.profile
 echo "export CHAIN_ID=lava-testnet-1" >> ~/.profile
-echo "export DAEMON_HOME=/.lava" >> ~/.profile
+echo "export DAEMON_HOME=$HOME/.lava" >> ~/.profile
 echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=true" >> ~/.profile
 echo "export DAEMON_LOG_BUFFER_SIZE=512" >> ~/.profile
 echo "export DAEMON_RESTART_AFTER_UPGRADE=true" >> ~/.profile
@@ -88,13 +88,13 @@ Description=Cosmovisor daemon
 After=network-online.target
 [Service]
 Environment="DAEMON_NAME=lavad"
-Environment="DAEMON_HOME=/.lava"
+Environment="DAEMON_HOME=${HOME}/.lava"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="DAEMON_LOG_BUFFER_SIZE=512"
 Environment="UNSAFE_SKIP_BACKUP=true"
 User=$USER
-ExecStart=/go/bin/cosmovisor start --home=$lavad_home_folder --p2p.seeds $seed_node
+ExecStart=${HOME}/go/bin/cosmovisor start --home=$lavad_home_folder --p2p.seeds $seed_node
 Restart=always
 RestartSec=3
 LimitNOFILE=infinity
