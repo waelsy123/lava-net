@@ -13,13 +13,6 @@ resource "aws_instance" "lava-testnet" {
     volume_type           = "gp3"
     delete_on_termination = true
   }
-  #   # data disk
-  #   ebs_block_device {
-  #     device_name           = "/dev/xvda"
-  #     volume_size           = "50"
-  #     volume_type           = "gp2"
-  #     delete_on_termination = true
-  #   }
 
   tags = {
     Name = "lava-testnet"
@@ -49,20 +42,3 @@ sudo -H -u ubuntu bash -c 'lava-net/setup.sh'
 }
 
 
-
-# Verify cosmovisor setup
-# Make sure cosmovisor is running by checking the state of the cosmovisor service:
-
-# Check the status of the service
-
-#> sudo systemctl status cosmovisor
-
-# To view the service logs - to escape, hit CTRL+C
-
-#> sudo journalctl -u cosmovisor -f
-
-# Verify node status
-# Note the location of lavad now exists under cosmovisor path:
-
-# # Check if the node is currently in the process of catching up
-#> $HOME/.lava/cosmovisor/current/bin/lavad status | jq
