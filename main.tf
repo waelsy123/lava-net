@@ -7,6 +7,22 @@ resource "aws_instance" "lava-testnet" {
   instance_type = "c4.xlarge"
   key_name      = "wasim-mac"
 
+  # root disk
+  root_block_device {
+    volume_size           = "20"
+    volume_type           = "gp2"
+    encrypted             = true
+    delete_on_termination = true
+  }
+  # data disk
+  ebs_block_device {
+    device_name           = "/dev/xvda"
+    volume_size           = "50"
+    volume_type           = "gp2"
+    encrypted             = true
+    delete_on_termination = true
+  }
+
   tags = {
     Name = "lava-testnet"
   }
