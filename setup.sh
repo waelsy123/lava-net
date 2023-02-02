@@ -57,7 +57,6 @@ go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 mkdir -p $lavad_home_folder/cosmovisor
 
 # Download the latest cosmovisor-upgrades from S3
-cd /home/ubuntu/
 wget https://lava-binary-upgrades.s3.amazonaws.com/testnet/cosmovisor-upgrades/cosmovisor-upgrades.zip
 unzip cosmovisor-upgrades.zip
 cp -r cosmovisor-upgrades/* $lavad_home_folder/cosmovisor
