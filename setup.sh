@@ -1,27 +1,5 @@
 #!/bin/bash
 
-# su ubuntu
-# echo "$PWD" >> pwddd
-
-# # installing Node.js pm2 and http-server
-# sudo apt-get update
-# # Install Node.js and npm
-# curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-# apt-get install -y nodejs
-# # Install git
-# apt-get install -y git
-# # Install the pm2 package
-# npm install pm2 -g
-# npm install http-server -g
-
-# ## intall go
-
-# cd 
-# echo "$PWD"
-
-# sudo apt update # in case of permissions error, try running with sudo
-# sudo apt install -y unzip logrotate git jq sed wget curl coreutils systemd
-
 # Download GO
 cd /home/ubuntu
 wget -q https://go.dev/dl/go1.18.linux-amd64.tar.gz
